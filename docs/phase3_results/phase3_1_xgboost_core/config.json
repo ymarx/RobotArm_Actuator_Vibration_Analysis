@@ -1,0 +1,54 @@
+{
+  "selected_features": [
+    "acc_Y_rms",
+    "acc_Y_peak",
+    "acc_Y_crest",
+    "acc_Sum_rms",
+    "acc_Sum_peak",
+    "acc_Sum_crest",
+    "Gyro_Y_rms",
+    "Gyro_Y_peak",
+    "Gyro_Y_crest",
+    "acc_Y_rms_high",
+    "Gyro_Y_rms_high",
+    "Gyro_Y_rms_low"
+  ],
+  "base_features": [
+    "acc_Y_rms",
+    "acc_Y_peak",
+    "acc_Y_crest",
+    "acc_Sum_rms",
+    "acc_Sum_peak",
+    "acc_Sum_crest",
+    "Gyro_Y_rms",
+    "Gyro_Y_peak",
+    "Gyro_Y_crest"
+  ],
+  "core_band_rms_features": [
+    "acc_Y_rms_high",
+    "Gyro_Y_rms_high",
+    "Gyro_Y_rms_low"
+  ],
+  "n_features": 12,
+  "hyperparameters": {
+    "max_depth": 3,
+    "min_child_weight": 5,
+    "subsample": 0.8,
+    "colsample_bytree": 0.8,
+    "reg_lambda": 5,
+    "reg_alpha": 1,
+    "learning_rate": 0.1,
+    "n_estimators": 100,
+    "random_state": 42,
+    "eval_metric": "logloss",
+    "scale_pos_weight": 0.8794520547945206
+  },
+  "cv_method": "StratifiedGroupKFold",
+  "n_splits": 5,
+  "cv_auc_mean": 0.6354597029384133,
+  "cv_auc_std": 0.14922067457509966,
+  "test_auc": 0.8203240058910163,
+  "test_accuracy": 0.7927927927927928,
+  "test_recall_normal": 0.7142857142857143,
+  "test_recall_abnormal": 0.8041237113402062
+}

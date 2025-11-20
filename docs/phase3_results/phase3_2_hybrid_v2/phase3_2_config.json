@@ -1,0 +1,152 @@
+{
+  "best_threshold_acc_Y_rms_high": 0.15,
+  "rms_full_threshold": 0.15,
+  "base_model": "XGBoost v3 (Phase 3-1)",
+  "strategies": {
+    "strategy_1_conservative": {
+      "name": "XGBoost v3 단독",
+      "rule": "xgb_prob >= 0.5",
+      "use_case": "기본 운영 모드"
+    },
+    "strategy_2_moderate": {
+      "name": "Hybrid v1",
+      "rule": "(xgb_prob >= 0.5) OR (acc_Y_rms > 0.15)",
+      "use_case": "불량 탐지 민감도 중간"
+    },
+    "strategy_3_sensitive": {
+      "name": "Hybrid v2",
+      "rule": "(xgb_prob >= 0.5) OR (acc_Y_rms > 0.15) OR (acc_Y_rms_high > 0.15)",
+      "use_case": "불량 탐지 최대 민감도 (Recall 우선)"
+    }
+  },
+  "validation_results": [
+    {
+      "threshold": 0.05,
+      "accuracy": 0.967391304347826,
+      "abnormal_precision": 0.9775280898876404,
+      "abnormal_recall": 0.9886363636363636,
+      "abnormal_f1": 0.983050847457627,
+      "normal_precision": 0.6666666666666666,
+      "normal_recall": 0.5,
+      "normal_f1": 0.5714285714285715,
+      "new_tp": 7,
+      "new_fp": 0
+    },
+    {
+      "threshold": 0.08,
+      "accuracy": 0.8913043478260869,
+      "abnormal_precision": 0.975609756097561,
+      "abnormal_recall": 0.9090909090909091,
+      "abnormal_f1": 0.9411764705882352,
+      "normal_precision": 0.2,
+      "normal_recall": 0.5,
+      "normal_f1": 0.28571428571428575,
+      "new_tp": 0,
+      "new_fp": 0
+    },
+    {
+      "threshold": 0.1,
+      "accuracy": 0.8913043478260869,
+      "abnormal_precision": 0.975609756097561,
+      "abnormal_recall": 0.9090909090909091,
+      "abnormal_f1": 0.9411764705882352,
+      "normal_precision": 0.2,
+      "normal_recall": 0.5,
+      "normal_f1": 0.28571428571428575,
+      "new_tp": 0,
+      "new_fp": 0
+    },
+    {
+      "threshold": 0.12,
+      "accuracy": 0.8913043478260869,
+      "abnormal_precision": 0.975609756097561,
+      "abnormal_recall": 0.9090909090909091,
+      "abnormal_f1": 0.9411764705882352,
+      "normal_precision": 0.2,
+      "normal_recall": 0.5,
+      "normal_f1": 0.28571428571428575,
+      "new_tp": 0,
+      "new_fp": 0
+    },
+    {
+      "threshold": 0.15,
+      "accuracy": 0.8913043478260869,
+      "abnormal_precision": 0.975609756097561,
+      "abnormal_recall": 0.9090909090909091,
+      "abnormal_f1": 0.9411764705882352,
+      "normal_precision": 0.2,
+      "normal_recall": 0.5,
+      "normal_f1": 0.28571428571428575,
+      "new_tp": 0,
+      "new_fp": 0
+    },
+    {
+      "threshold": 0.2,
+      "accuracy": 0.8913043478260869,
+      "abnormal_precision": 0.975609756097561,
+      "abnormal_recall": 0.9090909090909091,
+      "abnormal_f1": 0.9411764705882352,
+      "normal_precision": 0.2,
+      "normal_recall": 0.5,
+      "normal_f1": 0.28571428571428575,
+      "new_tp": 0,
+      "new_fp": 0
+    },
+    {
+      "threshold": 0.25,
+      "accuracy": 0.8913043478260869,
+      "abnormal_precision": 0.975609756097561,
+      "abnormal_recall": 0.9090909090909091,
+      "abnormal_f1": 0.9411764705882352,
+      "normal_precision": 0.2,
+      "normal_recall": 0.5,
+      "normal_f1": 0.28571428571428575,
+      "new_tp": 0,
+      "new_fp": 0
+    },
+    {
+      "threshold": 0.3,
+      "accuracy": 0.8913043478260869,
+      "abnormal_precision": 0.975609756097561,
+      "abnormal_recall": 0.9090909090909091,
+      "abnormal_f1": 0.9411764705882352,
+      "normal_precision": 0.2,
+      "normal_recall": 0.5,
+      "normal_f1": 0.28571428571428575,
+      "new_tp": 0,
+      "new_fp": 0
+    }
+  ],
+  "test_results": [
+    {
+      "Strategy": "XGBoost v3 (단독)",
+      "Accuracy": 0.7927927927927928,
+      "Abnormal_Precision": 0.9512195121951219,
+      "Abnormal_Recall": 0.8041237113402062,
+      "Abnormal_F1": 0.8715083798882682,
+      "Normal_Precision": 0.3448275862068966,
+      "Normal_Recall": 0.7142857142857143,
+      "Normal_F1": 0.46511627906976755
+    },
+    {
+      "Strategy": "Hybrid v1 (v3 + RMS)",
+      "Accuracy": 0.7927927927927928,
+      "Abnormal_Precision": 0.9404761904761905,
+      "Abnormal_Recall": 0.8144329896907216,
+      "Abnormal_F1": 0.8729281767955801,
+      "Normal_Precision": 0.3333333333333333,
+      "Normal_Recall": 0.6428571428571429,
+      "Normal_F1": 0.43902439024390244
+    },
+    {
+      "Strategy": "Hybrid v2 (v1 + High-band T=0.15)",
+      "Accuracy": 0.7927927927927928,
+      "Abnormal_Precision": 0.9404761904761905,
+      "Abnormal_Recall": 0.8144329896907216,
+      "Abnormal_F1": 0.8729281767955801,
+      "Normal_Precision": 0.3333333333333333,
+      "Normal_Recall": 0.6428571428571429,
+      "Normal_F1": 0.43902439024390244
+    }
+  ]
+}

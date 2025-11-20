@@ -1,0 +1,4 @@
+Model,Features,CV_Method,Test_Accuracy,Test_AUC,Test_Recall_Normal,Test_Recall_Abnormal,CV_AUC,CV_Test_Gap
+XGBoost Baseline (Step 2),9 base features,StratifiedKFold,0.784,0.811,0.691,0.804,0.913,0.10199999999999998
+XGBoost v2 (Step 3-4),18 features (9 base + 9 Band RMS),StratifiedKFold,0.784,0.811,0.567,0.804,0.997,0.18599999999999994
+XGBoost v3 (Phase 3-1),12 features (9 base + 3 core Band RMS),StratifiedGroupKFold,0.7927927927927928,0.8203240058910163,0.7142857142857143,0.8041237113402062,0.6354597029384133,-0.18486430295260303

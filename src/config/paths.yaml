@@ -1,0 +1,43 @@
+# ============================================================================
+# Path Configuration for Actuator Vibration Analysis Project
+# ============================================================================
+
+# Project root (relative paths from this config file)
+project_root: "../.."
+
+# Raw data
+raw:
+  csv_100w: "100W"
+  csv_200w: "200W"
+  excel_labels: "시험전 시료 표기내용.xlsx"
+
+# Interim data (processed intermediate files)
+interim:
+  base: "data/interim"
+  file_inventory: "data/interim/file_inventory.json"
+  file_master: "data/interim/file_master_v1.parquet"
+  quality_report: "data/interim/quality_report.csv"
+  splits_dir: "data/interim/splits"
+  split_strategy: "data/interim/split_strategy.yaml"
+  split_mapping: "data/interim/splits/split_v1.json"
+  windows_meta: "data/interim/windows_meta_v1.parquet"
+
+# Processed data (final feature tables)
+processed:
+  base: "data/processed"
+  windows_balanced: "data/processed/windows_balanced_v1.parquet"
+  features_100w: "data/processed/features_100w_v1.parquet"
+  features_200w: "data/processed/features_200w_v1.parquet"
+  features_combined: "data/processed/features_combined_v1.parquet"
+
+# Notebooks
+notebooks:
+  eda: "notebooks/eda"
+  experiments: "notebooks/experiments"
+
+# Models (for future use)
+models:
+  base: "models"
+  xgboost_100w: "models/xgboost_100w_v1.json"
+  xgboost_200w: "models/xgboost_200w_v1.json"
+  autoencoder: "models/autoencoder_v1.h5"

@@ -1,0 +1,6 @@
+feature1,feature2,correlation
+acc_Y_rms,acc_Sum_rms,0.9942884828884861
+acc_Z_rms,acc_Sum_rms,0.9848611673566384
+acc_Y_rms,acc_Z_rms,0.9646827223121004
+acc_X_rms,acc_Z_rms,0.9538388145691267
+acc_X_rms,acc_Sum_rms,0.9519780330180309

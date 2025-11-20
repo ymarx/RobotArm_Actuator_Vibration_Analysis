@@ -1,0 +1,11 @@
+category,metric,value
+Data,Total Windows (Train),476
+Data,Normal Windows,155
+Data,Abnormal Windows,321
+RMS Features,Total RMS Features,7
+RMS Features,Mean Abnormal/Normal Ratio,1.489
+RMS Features,Max Abnormal/Normal Ratio,2.225
+RMS Features,High Correlation Pairs (|r|>0.95),5
+Top RMS Features,acc_Y_rms,Ratio=2.225 (+122.5%)
+Top RMS Features,acc_Sum_rms,Ratio=1.759 (+75.9%)
+Top RMS Features,acc_Z_rms,Ratio=1.522 (+52.2%)

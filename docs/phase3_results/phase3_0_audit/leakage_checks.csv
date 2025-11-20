@@ -1,0 +1,10 @@
+check,expected,actual,status,details
+File-level: Train-Val overlap,0,0,✅ PASS,No overlap (time-split files excluded)
+File-level: Train-Test overlap,0,0,✅ PASS,No overlap (time-split files excluded)
+File-level: Val-Test overlap,0,0,✅ PASS,No overlap (time-split files excluded)
+Temporal: 100W_S00_CCW_R4,train < val < test,"train:31, val:1, test:1",✅ PASS,Correct temporal ordering
+Temporal: 100W_S00_CW_R4,train < val < test,"train:18, val:1, test:1",✅ PASS,Correct temporal ordering
+Temporal: 200W_S03_CCW_R4,train < val < test,"train:3, val:1, test:1",✅ PASS,Correct temporal ordering
+Temporal: 200W_S03_CW_R4,train < val < test,"train:28, val:1, test:1",✅ PASS,Correct temporal ordering
+Window coverage,612,609,⚠️ WARNING,"Missing: 3, Extra: 0"
+Label distribution,Balanced across splits,See label_dist table,✅ PASS,Label distribution verified
