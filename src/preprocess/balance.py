@@ -66,8 +66,17 @@ def balance_train_windows(
     # Get balancing config
     balance_config = params.get('balancing', {})
     target_ratio = balance_config.get('target_ratio', {'normal': 1, 'abnormal': 2})
-    method = balance_config.get('method', 'oversample')
+    method = balance_config.get('method', 'none')
     random_seed = balance_config.get('random_seed', 42)
+
+    # If balancing is disabled, return original data
+    if method == 'none':
+        train_df = windows_df[windows_df['split_set'] == 'train']
+        n_normal = (train_df['label_binary'] == 1).sum()
+        n_abnormal = (train_df['label_binary'] == 0).sum()
+        logger.info(f"Balancing disabled (method='none')")
+        logger.info(f"Original train distribution preserved: normal={n_normal}, abnormal={n_abnormal}")
+        return windows_df
 
     np.random.seed(random_seed)
 
@@ -172,6 +181,36 @@ def balance_train_windows(
 
     # Combine with val/test
     result = pd.concat([balanced_train, other_df], ignore_index=True)
+
+    # ========================================================================
+    # CRITICAL VALIDATION: Check for duplicate window_ids
+    # ========================================================================
+    if 'window_id' in result.columns:
+        n_total = len(result)
+        n_unique = result['window_id'].nunique()
+        n_duplicates = n_total - n_unique
+
+        if n_duplicates > 0:
+            logger.error(f"CRITICAL BUG: {n_duplicates} duplicate window_ids detected after balancing!")
+
+            # Log details of duplicates
+            duplicated_ids = result[result['window_id'].duplicated(keep=False)]['window_id'].unique()
+            logger.error(f"Duplicate window_ids (first 10): {duplicated_ids[:10].tolist()}")
+
+            # Count duplicates by split_set
+            for split in ['train', 'val', 'test']:
+                split_data = result[result['split_set'] == split]
+                split_dups = split_data['window_id'].duplicated().sum()
+                if split_dups > 0:
+                    logger.error(f"  {split}: {split_dups} duplicates")
+
+            raise ValueError(
+                f"Data integrity violation: {n_duplicates} duplicate window_ids found. "
+                "This typically indicates oversampling with replace=True. "
+                "Check balancing configuration and ensure method='none' or unique ID generation."
+            )
+
+        logger.info(f"✅ Validation passed: {n_unique} unique window_ids (no duplicates)")
 
     return result
 

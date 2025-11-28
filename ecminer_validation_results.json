@@ -1,0 +1,103 @@
+{
+  "timestamp": "2025-11-24 13:19:12",
+  "data": {
+    "total_files": 32,
+    "total_windows": 462,
+    "train_windows": 317,
+    "val_windows": 75,
+    "test_windows": 70
+  },
+  "features": [
+    "acc_Y_rms",
+    "acc_Y_peak",
+    "acc_Y_crest",
+    "acc_Sum_rms",
+    "acc_Sum_peak",
+    "acc_Sum_crest",
+    "Gyro_Y_rms",
+    "Gyro_Y_peak",
+    "Gyro_Y_crest",
+    "acc_Y_rms_high",
+    "Gyro_Y_rms_high",
+    "Gyro_Y_rms_low"
+  ],
+  "ecminer_params": {
+    "n_estimators": 100,
+    "max_depth": 3,
+    "subsample": 0.8,
+    "learning_rate": 0.1
+  },
+  "phase3_comparison": {
+    "phase3_test_auc": 0.82,
+    "ecminer_test_auc": 0.6238425925925926,
+    "ecminer_test_acc": 0.6,
+    "auc_difference": -0.1961574074074074
+  },
+  "metrics": {
+    "test_accuracy": 0.6,
+    "test_precision": 0.2857142857142857,
+    "test_recall": 0.5,
+    "test_f1": 0.36363636363636365,
+    "test_auc": 0.6238425925925926
+  },
+  "confusion_matrix": [
+    [
+      34,
+      20
+    ],
+    [
+      8,
+      8
+    ]
+  ],
+  "feature_importance": [
+    {
+      "feature": "acc_Sum_rms",
+      "importance": 0.16486983001232147
+    },
+    {
+      "feature": "acc_Y_rms",
+      "importance": 0.16133740544319153
+    },
+    {
+      "feature": "acc_Sum_peak",
+      "importance": 0.10182943940162659
+    },
+    {
+      "feature": "Gyro_Y_peak",
+      "importance": 0.0841737613081932
+    },
+    {
+      "feature": "Gyro_Y_rms_low",
+      "importance": 0.07701649516820908
+    },
+    {
+      "feature": "acc_Y_rms_high",
+      "importance": 0.07116460800170898
+    },
+    {
+      "feature": "acc_Y_crest",
+      "importance": 0.0649661123752594
+    },
+    {
+      "feature": "Gyro_Y_rms",
+      "importance": 0.06061210483312607
+    },
+    {
+      "feature": "Gyro_Y_rms_high",
+      "importance": 0.06008585914969444
+    },
+    {
+      "feature": "acc_Sum_crest",
+      "importance": 0.05833366885781288
+    },
+    {
+      "feature": "acc_Y_peak",
+      "importance": 0.058007899671792984
+    },
+    {
+      "feature": "Gyro_Y_crest",
+      "importance": 0.03760283440351486
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+ECMiner Stage 1 패키지 내용물
+===============================
+
+📦 ECMiner_Package/
+│
+├── 📄 ecminer_stage1_py_node.py    ← ECMiner Python 노드 스크립트 (메인)
+├── 📄 requirements.txt              ← Python 패키지 의존성 목록
+├── 📄 setup_windows.bat             ← Windows 자동 설치 스크립트
+│
+├── 📖 README_KR.md                  ← 완전한 설치 및 사용 가이드
+├── 📖 QUICK_START_KR.md             ← 빠른 시작 가이드 (5분)
+│
+├── 📊 ecminer_input_example.csv     ← ECMiner 입력 CSV 예시 파일
+│
+└── 📁 data/                         ← 원본 데이터 배치 폴더
+    ├── 📄 README.txt                ← 데이터 폴더 안내
+    ├── 📁 100W/                     ← 100W 제품 CSV 파일 (사용자가 배치)
+    └── 📁 200W/                     ← 200W 제품 CSV 파일 (사용자가 배치)
+
+
+주요 파일 설명
+=============
+
+1. ecminer_stage1_py_node.py (16.6 KB)
+   - ECMiner Python 노드용 스크립트
+   - 전처리 + 특징 추출 완전 구현
+   - 한국어 주석 포함
+   - 입력: file_path, file_id, label
+   - 출력: 18개 특징 + 메타데이터
+
+2. setup_windows.bat (3.3 KB)
+   - Windows 자동 설치 스크립트
+   - Python 버전 확인 (3.8+)
+   - venv 생성 및 활성화
+   - 패키지 설치 및 검증
+   - 더블클릭으로 실행
+
+3. requirements.txt (66 bytes)
+   - numpy==1.24.3
+   - pandas==2.0.3
+   - scipy==1.11.1
+   - scikit-learn==1.3.0
+
+4. README_KR.md (11 KB)
+   - 완전한 사용 설명서
+   - 시스템 요구사항
+   - 설치 방법 (자동/수동)
+   - ECMiner 연동 방법
+   - 하이퍼파라미터 설명
+   - 성능 지표 (AUC 0.87)
+   - 문제 해결 가이드
+
+5. QUICK_START_KR.md (1.5 KB)
+   - 빠른 시작 가이드
+   - 3분 설치
+   - 5분 연동
+   - 핵심 정보만 요약
+
+6. ecminer_input_example.csv (0.3 KB)
+   - ECMiner 입력 형식 예시
+   - 3개 컬럼: file_path, file_id, label
+   - 6개 샘플 파일 포함
+
+
+필수 작업
+=========
+
+설치 후:
+  1. data/100W/ 폴더에 100W CSV 파일 배치
+  2. data/200W/ 폴더에 200W CSV 파일 배치
+  3. ECMiner에서 입력 CSV 준비 (ecminer_input_example.csv 참조)
+  4. Python 노드 생성 및 스크립트 로드
+
+
+권장 설치 순서
+==============
+
+1. setup_windows.bat 실행 (자동 설치)
+2. data/ 폴더에 원본 CSV 파일 배치
+3. QUICK_START_KR.md 따라 ECMiner 연동
+4. 문제 발생 시 README_KR.md 참조
+
+
+성능 요약
+=========
+
+- Test AUC: 0.8719 (18개 특징)
+- Test AUC: 0.8085 (12개 핵심 특징)
+- 데이터: 647 윈도우 (중복 없음)
+- 처리 속도: 약 1-2초/파일
+
+
+시스템 요구사항
+===============
+
+- OS: Windows 10+
+- Python: 3.8+
+- RAM: 4GB+
+- 저장공간: 500MB
+
+
+연락처
+======
+
+프로젝트: Robot Arm Actuator Vibration Analysis (Phase 3)
+버전: ECMiner Stage 1 v1.0
+날짜: 2025-11-24

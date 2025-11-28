@@ -1,0 +1,10 @@
+ECMiner CSV Performance Test Summary
+================================================================================
+
+                        Model  Features          CV AUC Test AUC CV-Test Gap Test Recall (Abn) Test Recall (Norm)
+Phase2 Step 3-4 (18 features)        18 0.9688 ± 0.0178   0.8719      0.0969             0.825              0.786
+  Phase3-1 Core (12 features)        12 0.9109 ± 0.0218   0.8085      0.1023             0.742              0.643
+
+18 features Test AUC: 0.8719
+12 features Test AUC: 0.8085
+Difference: -0.0633

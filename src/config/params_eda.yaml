@@ -126,8 +126,9 @@ balancing:
     normal: 1
     abnormal: 2  # 정상:불량 = 1:2
 
-  # 방법: oversample (정상이 부족), undersample (불량이 과다), mixed
-  method: "oversample"
+  # 방법: oversample (정상이 부족), undersample (불량이 과다), none (원본 유지)
+  # ⚠️ IMPORTANT: "none"으로 설정하여 Oversampling 미사용 (XGBoost scale_pos_weight로만 처리)
+  method: "none"
 
   # 랜덤 시드
   random_seed: 42

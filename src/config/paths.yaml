@@ -7,8 +7,8 @@ project_root: "../.."
 
 # Raw data
 raw:
-  csv_100w: "100W"
-  csv_200w: "200W"
+  csv_100w: "data/100W"
+  csv_200w: "data/200W"
   excel_labels: "시험전 시료 표기내용.xlsx"
 
 # Interim data (processed intermediate files)

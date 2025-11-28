@@ -69,7 +69,7 @@ def parse_csv_with_metadata(csv_path):
 # Paths
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = PROJECT_ROOT / "data" / "processed"
-RAW_DATA_DIR = PROJECT_ROOT  # CSV files are in 100W/ and 200W/ at project root
+RAW_DATA_DIR = PROJECT_ROOT / "data"  # CSV files are in data/100W/ and data/200W/
 OUTPUT_DIR = PROJECT_ROOT / "docs" / "phase2_results" / "step3_3_band_rms"
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 

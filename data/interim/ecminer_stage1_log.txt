@@ -1,0 +1,125 @@
+Loading CSV files from /Users/YMARX/Dropbox/2025_ECMiner/CP25_NeuroMecha/03_진행/[Analysis]RobotArm_Actuator_QT(Ociliation)/data/100W for product 100W
+Found 30 CSV files
+Successfully loaded 30 files for 100W
+Loading CSV files from /Users/YMARX/Dropbox/2025_ECMiner/CP25_NeuroMecha/03_진행/[Analysis]RobotArm_Actuator_QT(Ociliation)/data/200W for product 200W
+Found 31 CSV files
+Failed to parse filename: 200W_Sample2_2025-11-07 10-45-10.csv
+Successfully loaded 30 files for 200W
+  ✓ Loaded 60 files (100W: 30, 200W: 30)
+Loading labels from /Users/YMARX/Dropbox/2025_ECMiner/CP25_NeuroMecha/03_진행/[Analysis]RobotArm_Actuator_QT(Ociliation)/시험전 시료 표기내용.xlsx
+Columns: sample=시료번호, 100W=100W, 200W=200W
+Loaded 29 label records
+Distribution:
+product  label
+100W     소음        3
+         정상        1
+         진동        2
+         표기없음      9
+200W     소음        1
+         진동        3
+         표기없음     10
+dtype: int64
+Creating file master table
+Merged 60 files
+Applying override: 200W Sample3: 소음 → 정상
+File master table created with 60 records
+Label distribution:
+label_raw
+표기없음    38
+소음       9
+진동       9
+정상       4
+Name: count, dtype: int64
+Binary label distribution:
+label_binary
+0    47
+1    13
+Name: count, dtype: int64
+Normal samples: 4
+  ✓ File master: 60 files, Normal: 4
+Creating quality report for all files
+Quality report summary:
+  Total files: 60
+  Usable files: 57
+  Files with issues: 3
+  ✓ Usable files: 57/60
+Using split strategy: time_based
+Creating time-based splits
+Normal files: 4
+Abnormal files: 56
+  100W: 28 abnormal files
+  200W: 28 abnormal files
+Split summary:
+  time_split (normal): 4
+  train (abnormal): 38
+  val (abnormal): 8
+  test (abnormal): 10
+  ✓ Splits: time_split=4, train=38, val=8, test=10
+Creating windows metadata
+Created 650 windows
+Split distribution:
+split_set
+train    447
+test     111
+val       92
+Name: count, dtype: int64
+  ✓ Generated 650 windows
+    train: 447 windows (Normal: 126, Abnormal: 321)
+    val: 92 windows (Normal: 4, Abnormal: 88)
+    test: 111 windows (Normal: 14, Abnormal: 97)
+    Processed 100/650 windows...
+    Processed 200/650 windows...
+    Processed 300/650 windows...
+    Processed 400/650 windows...
+Window 200W_S02_CW_R4_W0439 too short (0 samples), skipping
+Window 200W_S02_CW_R4_W0440 too short (0 samples), skipping
+Window 200W_S02_CW_R4_W0441 too short (0 samples), skipping
+    Processed 500/650 windows...
+    Processed 600/650 windows...
+  ✓ Extracted features: 647 windows × 18 features
+  ✓ Clean data: 647 windows (removed 0 with NaN)
+  ✓ Saved to: /Users/YMARX/Dropbox/2025_ECMiner/CP25_NeuroMecha/03_진행/[Analysis]RobotArm_Actuator_QT(Ociliation)/ecminer_stage1_output.csv
+================================================================================
+ECMiner Stage 1: Complete Preprocessing Pipeline
+Raw CSV → 18 Features → ECMiner CSV
+================================================================================
+
+[Step 1/8] Loading configuration...
+
+[Step 2/8] Loading raw CSV files...
+
+[Step 3/8] Loading labels and creating file master...
+
+[Step 4/8] Quality check and data cleaning...
+
+[Step 5/8] Assigning train/val/test splits...
+
+[Step 6/8] Generating window segments...
+
+[Step 7/8] Extracting 18 features per window...
+
+[Step 8/8] Saving ECMiner output CSV...
+
+================================================================================
+ECMiner Stage 1 Complete!
+================================================================================
+
+Output: 647 windows × 18 features
+File: /Users/YMARX/Dropbox/2025_ECMiner/CP25_NeuroMecha/03_진행/[Analysis]RobotArm_Actuator_QT(Ociliation)/ecminer_stage1_output.csv
+
+Dataset Distribution:
+  train: 444 windows (Normal: 123, Abnormal: 321)
+  val  :  92 windows (Normal:   4, Abnormal:  88)
+  test : 111 windows (Normal:  14, Abnormal:  97)
+
+Features (18):
+  Basic (9):    acc_Y_rms, acc_Y_peak, acc_Y_crest, acc_Sum_rms, acc_Sum_peak, acc_Sum_crest, Gyro_Y_rms, Gyro_Y_peak, Gyro_Y_crest
+  Band RMS (9): acc_Y_rms_low, acc_Y_rms_mid, acc_Y_rms_high, acc_Sum_rms_low, acc_Sum_rms_mid, acc_Sum_rms_high, Gyro_Y_rms_low, Gyro_Y_rms_mid, Gyro_Y_rms_high
+
+================================================================================
+Next Steps:
+  1. Import ecminer_stage1_output.csv into ECMiner
+  2. Filter: Select 12 features (9 basic + 3 band RMS)
+  3. XGBoost: Train with parameters (n_estimators=100, max_depth=3, etc.)
+  4. Expected Test AUC: ~0.797 (Phase3-1 Clean version)
+================================================================================

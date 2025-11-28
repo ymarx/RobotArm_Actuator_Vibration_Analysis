@@ -41,14 +41,14 @@
     "n_estimators": 100,
     "random_state": 42,
     "eval_metric": "logloss",
-    "scale_pos_weight": 0.8794520547945206
+    "scale_pos_weight": 2.6097560975609757
   },
   "cv_method": "StratifiedGroupKFold",
   "n_splits": 5,
-  "cv_auc_mean": 0.6354597029384133,
-  "cv_auc_std": 0.14922067457509966,
-  "test_auc": 0.8203240058910163,
-  "test_accuracy": 0.7927927927927928,
+  "cv_auc_mean": 0.7031004399873135,
+  "cv_auc_std": 0.12093636588784563,
+  "test_auc": 0.7967599410898379,
+  "test_accuracy": 0.7207207207207207,
   "test_recall_normal": 0.7142857142857143,
-  "test_recall_abnormal": 0.8041237113402062
+  "test_recall_abnormal": 0.7216494845360825
 }

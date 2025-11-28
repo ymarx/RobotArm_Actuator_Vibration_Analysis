@@ -1,0 +1,112 @@
+{
+  "timestamp": "2025-11-24 13:09:54",
+  "data": {
+    "total_samples": 889,
+    "train": 686,
+    "val": 92,
+    "test": 111
+  },
+  "features": [
+    "acc_Y_rms",
+    "acc_Y_peak",
+    "acc_Y_crest",
+    "acc_Sum_rms",
+    "acc_Sum_peak",
+    "acc_Sum_crest",
+    "Gyro_Y_rms",
+    "Gyro_Y_peak",
+    "Gyro_Y_crest",
+    "acc_Y_rms_high",
+    "Gyro_Y_rms_high",
+    "Gyro_Y_rms_low"
+  ],
+  "results": {
+    "Phase3 Full": {
+      "params": {
+        "n_estimators": 100,
+        "max_depth": 3,
+        "subsample": 0.8,
+        "learning_rate": 0.1,
+        "min_child_weight": 5,
+        "reg_lambda": 5,
+        "reg_alpha": 1,
+        "colsample_bytree": 0.8
+      },
+      "metrics": {
+        "accuracy": 0.7927927927927928,
+        "precision": 0.3448275862068966,
+        "recall": 0.7142857142857143,
+        "f1": 0.46511627906976755,
+        "auc": 0.8203240058910163
+      },
+      "confusion_matrix": [
+        [
+          78,
+          19
+        ],
+        [
+          4,
+          10
+        ]
+      ]
+    },
+    "ECMiner Only (4 params)": {
+      "params": {
+        "n_estimators": 100,
+        "max_depth": 3,
+        "subsample": 0.8,
+        "learning_rate": 0.1
+      },
+      "metrics": {
+        "accuracy": 0.7927927927927928,
+        "precision": 0.3548387096774194,
+        "recall": 0.7857142857142857,
+        "f1": 0.48888888888888893,
+        "auc": 0.8335787923416789
+      },
+      "confusion_matrix": [
+        [
+          77,
+          20
+        ],
+        [
+          3,
+          11
+        ]
+      ]
+    },
+    "ECMiner + colsample (5 params)": {
+      "params": {
+        "n_estimators": 100,
+        "max_depth": 3,
+        "subsample": 0.8,
+        "learning_rate": 0.1,
+        "colsample_bytree": 0.8
+      },
+      "metrics": {
+        "accuracy": 0.8108108108108109,
+        "precision": 0.3793103448275862,
+        "recall": 0.7857142857142857,
+        "f1": 0.5116279069767441,
+        "auc": 0.8195876288659794
+      },
+      "confusion_matrix": [
+        [
+          79,
+          18
+        ],
+        [
+          3,
+          11
+        ]
+      ]
+    }
+  },
+  "analysis": {
+    "phase3_auc": 0.8203240058910163,
+    "ecminer_only_auc": 0.8335787923416789,
+    "ecminer_plus_auc": 0.8195876288659794,
+    "auc_loss_ecminer_only": 0.013254786450662581,
+    "auc_loss_ecminer_plus": -0.0007363770250369273
+  }
+}
